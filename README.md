@@ -4,6 +4,8 @@ An intelligent document analysis system powered by OpenAI GPT-4o-mini. Automatic
 
 ## Demo
 
+**[View Demo](https://github.com/prnk04/Smart_Document_Analyser/blob/main/DemosAndScreenshots/Demo.gif)**
+
 ## 🎯 Features
 
 - **Multi-Format Support**: PDF, DOCX, TXT
@@ -14,18 +16,33 @@ An intelligent document analysis system powered by OpenAI GPT-4o-mini. Automatic
 
 ## 🏗️ Architecture
 
+## High-Level Flow
+
 ```
-User uploads document or enters link to a document
+User Input
+├─ File Upload (PDF/DOCX/TXT)
+│   └─ Streamlit file_uploader
+├─ URL Input ⭐ (Your feature!)
+│   └─ HTTP fetch + validation
         ↓
-Document Loader (extract text)
+   Document Loader
+   ├─ Auto-detect format
+   ├─ Extract text
+   └─ Validate content
         ↓
-LLM Client (with retry + fallback + caching)
+    LLM Client
+    ├─ Cache Check (TTL-based)
+    ├─ Primary Model (GPT-4o)
+    ├─ Fallback (GPT-4o-mini)
+    └─ Error Translation
         ↓
-├─ Classification
-├─ Entity Extraction
-└─ Summarization
+    Parallel Analysis
+    ├─ Classification
+    ├─ Entity Extraction
+    └─ Summarization
         ↓
-Streamlit UI (results display)
+    Streamlit UI
+    └─ Progressive Results
 ```
 
 ## 🛠️ Technical Stack
