@@ -1,0 +1,30 @@
+INVOICE
+
+Invoice #: INV-2024-001
+Date: January 20, 2024
+
+From:
+Web Solutions LLC
+123 Tech Street
+Austin, TX 78701
+
+To:
+ABC Corporation
+456 Business Ave
+New York, NY 10001
+
+Description of Services:
+- Website Development: $5,000
+- SEO Optimization: $1,500
+- Monthly Maintenance (3 months): $900
+
+Subtotal: $7,400
+Tax (8.25%): $610.50
+Total Due: $8,010.50
+
+Payment Due: February 20, 2024
+
+Please remit payment to:
+Account: Web Solutions LLC
+Bank: First National Bank
+Account #: 123456789

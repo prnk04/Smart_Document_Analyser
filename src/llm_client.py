@@ -240,13 +240,19 @@ class LLMClient:
             APIConnectionError: "Unable to connect to AI service. Please check your internet connection.",
             InternalServerError: "We're having trouble processing the response. Please try again.",
             json.JSONDecodeError: "We're having trouble processing the response. Please try again.",
+            "InvalidFileFormat": "Invalid file format from the URL. Please enter URL for PDF, text, or .docx files only",
         }
 
         # Get user-friendly message
         error_type = type(error)
+        print("error type: ", error_type)
         user_message = error_map.get(
             error_type, "An unexpected error occurred. Please try again."
         )
+
+        if user_message == "An unexpected error occurred. Please try again.":
+            if str(error).__contains__("InvalidFileFormat"):
+                user_message = "Invalid file format from the URL. Please enter URL for PDF, text, or .docx files only"
 
         # Log technical details (in production, send to logging service)
         print(f"\n[Internal Error Log]")

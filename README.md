@@ -2,6 +2,8 @@
 
 An intelligent document analysis system powered by OpenAI GPT-4o-mini. Automatically classifies documents, extracts entities, and generates summaries.
 
+## Demo
+
 ## 🎯 Features
 
 - **Multi-Format Support**: PDF, DOCX, TXT
@@ -87,6 +89,20 @@ streamlit run app.py
 - **Entity Extraction**: ~3-4s per document
 - **Summarization**: ~3-5s per document
 - **Cache Hit**: <100ms (instant!)
+
+## 🌐 Unique Feature: URL Support
+
+Unlike typical document analyzers, this system supports **direct URL input**!
+
+### Why This Matters
+
+- Users often share documents via links
+- No need to download first
+- Seamless experience
+
+### Example URLs You Can Try
+
+- Academic papers: https://arxiv.org/pdf/1706.03762.pdf
 
 ## 🔮 Future Enhancements
 

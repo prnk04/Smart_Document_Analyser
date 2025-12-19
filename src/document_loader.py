@@ -4,7 +4,9 @@ Extract text from various documents
 
 from pathlib import Path
 from typing import Optional
-import PyPDF2
+
+# import PyPDF2
+import pypdf
 import docx
 import io
 import requests
@@ -20,7 +22,7 @@ class DocumentLoader:
 
         try:
             with open(file_path, "rb") as f:
-                reader = PyPDF2.PdfReader(f)
+                reader = pypdf.PdfReader(f)
 
                 text = ""
                 for page in reader.pages:
@@ -60,7 +62,7 @@ class DocumentLoader:
             content_type = url_res.headers["content-type"]
             match content_type.split(";")[0]:
                 case "application/pdf":
-                    reader = PyPDF2.PdfReader(io.BytesIO(url_res.content))
+                    reader = pypdf.PdfReader(io.BytesIO(url_res.content))
                     text = ""
                     for page in reader.pages:
                         text += page.extract_text() + "\n"
@@ -73,6 +75,9 @@ class DocumentLoader:
 
                 case "text/html":
                     # return url_res.text.strip()
+                    text = url_res.text.strip()
+                    if text.startswith("<!doctype html"):
+                        raise Exception("Invalid file format")
                     return {
                         "file_type": "TXT",
                         "size": 0,
@@ -94,14 +99,15 @@ class DocumentLoader:
                     print(
                         "Unknown format. Please use URLs that have pdf/text or docx files only"
                     )
-                    return {
-                        "file_type": "Unknown",
-                        "size": 0,
-                        "text": "Unknown format. Please use URLs that have pdf/text or docx files only",
-                        "word_count": 0,
-                    }
+                    # return {
+                    #     "file_type": "Unknown",
+                    #     "size": 0,
+                    #     "text": "Unknown format. Please use URLs that have pdf/text or docx files only",
+                    #     "word_count": 0,
+                    # }
+                    raise Exception("Invalid file format")
         except Exception as e:
-            raise Exception(f"Error loading TXT: {e}")
+            raise Exception(f"InvalidFileFormat: {e}")
 
     @classmethod
     def load(cls, file_path: Path) -> dict:

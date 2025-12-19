@@ -1,0 +1,18 @@
+EMPLOYMENT CONTRACT
+
+This Employment Agreement is entered into on January 15, 2024, between TechCorp Inc. ("Employer") and John Smith ("Employee").
+
+Position: Senior Software Engineer
+Start Date: February 1, 2024
+Salary: $95,000 per annum
+Location: San Francisco, CA
+
+The Employee agrees to perform duties as assigned by the Engineering Manager, Sarah Johnson.
+
+Benefits include health insurance, 401(k) matching, and 15 days paid time off annually.
+
+This contract may be terminated by either party with 30 days written notice.
+
+Signed:
+TechCorp Inc.
+John Smith
